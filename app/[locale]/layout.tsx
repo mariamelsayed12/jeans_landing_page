@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 
@@ -27,13 +27,14 @@ export default async function RootLayout({
  params
 }: {
  children: React.ReactNode;
- params: {locale:string};
+ params: Promise<{locale:string}>;
 }) {
 
+ const { locale } = await params;
  const messages = await getMessages();
 
   return (
-  <html lang={params.locale} dir={params.locale === "ar" ? "rtl":"ltr"}>
+  <html lang={locale} dir={locale === "ar" ? "rtl":"ltr"}>
     <body className={`${poppins.variable} `}>
     <NextIntlClientProvider messages={messages}>
           {children}

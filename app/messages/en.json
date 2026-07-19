@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "About": "About",
+    "Product": "Product",
+    "Stock Pricing": "Stock Pricing",
+    "FAQs": "FAQs"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Clothes That Fits Everyday",
+      "description": "Designed for everyday wear and manufactured with consistent quality. Buy individually or source in bulk at competitive stock prices."
+    },
+    "slide2": {
+      "title": "Crafted with Precision",
+      "description": "Every garment is carefully designed, expertly crafted, and thoroughly inspected to deliver consistent quality you can trust."
+    },
+    "slide3": {
+      "title": "Your Trusted Partner",
+      "description": "From production to fulfillment, we deliver consistent quality, dependable service, and scalable solutions for growing apparel businesses."
+    }
+  }
+}
