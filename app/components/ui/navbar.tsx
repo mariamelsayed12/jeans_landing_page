@@ -146,9 +146,19 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           <a
             href="#home"
             onClick={(e) => handleScrollTo(e, "home")}
+            className="flex gap-[8px] items-center hover:opacity-85 transition-opacity shrink-0"
             aria-label="Algammal Inc. Home"
           >
-            <Image alt="logo" src={"/assets/LogoElgammal.svg" }  width={46.953} height={38.064}/>
+            <Image
+              src="/assets/LogoElgammal.svg"
+              alt="logo"
+              width={47}
+              height={38}
+              priority
+            />
+            <span className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX">
+              ELGAMMAL
+            </span>
           </a>
 
           {/* Right Navigation & Actions */}
@@ -206,10 +216,19 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           <a
             href="#home"
             onClick={(e) => handleScrollTo(e, "home")}
-            className="bg-[#8d4b4b] h-[45px] w-[99px] flex items-center justify-center text-white font-bold tracking-[0.1em] text-xs uppercase rounded hover:opacity-90 transition-opacity"
+            className="flex gap-[8px] items-center hover:opacity-85 transition-opacity shrink-0"
             aria-label="Algammal Inc. Home"
           >
-            ALGAMMAL
+            <Image
+              src="/assets/LogoElgammal.svg"
+              alt="logo"
+              width={47}
+              height={38}
+              priority
+            />
+            <span className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX uppercase">
+              ELGAMMAL
+            </span>
           </a>
         </div>
       </nav>
@@ -232,7 +251,17 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
       >
         {/* Drawer Header with Close Button */}
         <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-          <span className="font-bold text-sm tracking-wider text-[#8d4b4b]">ALGAMMAL</span>
+          <div className="flex gap-[8px] items-center">
+            <Image
+              src="/assets/LogoElgammal.svg"
+              alt="logo"
+              width={35}
+              height={28}
+            />
+            <span className="font-bold text-sm tracking-wider text-[#141414] font-TROX uppercase">
+              ELGAMMAL
+            </span>
+          </div>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label={locale === "en" ? "Close Menu" : "إغلاق القائمة"}

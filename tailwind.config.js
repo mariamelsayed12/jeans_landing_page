@@ -7,6 +7,9 @@ module.exports = {
 
   theme: {
     extend: {
+      fontFamily: {
+        TROX: ["TROX", "sans-serif"],
+      },
       background: {
       primary: "var(--bg-primary)",
       secondary: "var(--bg-secondary)",
@@ -16,7 +19,7 @@ module.exports = {
       secondary: "var(--text-secondary)",
   },
       raduis:{
-          'md':'16 px'
+          'md':'16px'
 
       }
     },

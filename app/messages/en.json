@@ -18,5 +18,14 @@
       "title": "Your Trusted\nPartner",
       "description": "From production to fulfillment, we deliver consistent quality, dependable service, and scalable solutions for growing apparel businesses."
     }
+  },
+  "footer": {
+    "tradition": "Where Quality\n Becomes Tradition.",
+    "About": "About",
+    "Products": "Products",
+    "FAQs": "FAQs",
+    "Testimonials": "Testimonials",
+    "Connect": "Connect With Us",
+    "Address": "Alexandria, Egypt"
   }
 }

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'TROX';
+  src: url('/assets/TROX.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --font-poppins: "Poppins", sans-serif;
   --color-bg-primary: #EFF1F4;
@@ -11,11 +18,7 @@
   --color-text-primary: #EFF1F4;
   --color-text-secondary: #141414;
   --color-border-neutral: #D4D5D8;
-
-  
-
-
-
+  --color-brand-primary: #8d4b4b;
 }
 
 body {
