@@ -23,6 +23,14 @@
     "title": "Our Mission",
     "description": "At Algammal Inc., our mission is to create apparel that reflects exceptional craftsmanship, uncompromising quality, and lasting value. We combine skilled manufacturing, carefully selected materials, and attention to every detail to ensure every garment meets the highest standards."
   },
+  "product": {
+    "section_title": "Our Featured Product Line",
+    "name": "Classic Street Jeans",
+    "price": "200 EGP",
+    "add_to_cart": "Add to Cart",
+    "stock_pricing_prefix": "For stock pricing",
+    "contact_us": "Contact us"
+  },
   "footer": {
     "tradition": "Where Quality\n Becomes Tradition.",
     "About": "About",
