@@ -2,6 +2,7 @@
 
 import Navbar from "@/app/components/ui/navbar";
 import HeroSection from "@/app/components/Home/HeroSection";
+import OurMission from "@/app/components/Home/OurMission";
 import Footer from "@/app/components/ui/Footer";
 import { useTranslations } from "next-intl";
 
@@ -21,12 +22,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="min-h-screen flex flex-col items-center justify-center bg-white px-6 md:px-24"
-      >
-        <h1>about</h1>
-      </section>
+      <OurMission />
 
       {/* Product Section */}
       <section

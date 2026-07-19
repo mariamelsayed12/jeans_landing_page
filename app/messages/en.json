@@ -19,6 +19,10 @@
       "description": "From production to fulfillment, we deliver consistent quality, dependable service, and scalable solutions for growing apparel businesses."
     }
   },
+  "about": {
+    "title": "Our Mission",
+    "description": "At Algammal Inc., our mission is to create apparel that reflects exceptional craftsmanship, uncompromising quality, and lasting value. We combine skilled manufacturing, carefully selected materials, and attention to every detail to ensure every garment meets the highest standards."
+  },
   "footer": {
     "tradition": "Where Quality\n Becomes Tradition.",
     "About": "About",
