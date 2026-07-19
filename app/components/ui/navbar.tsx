@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import Button from "@/app/components/ui/Button";
+import Image from "next/image";
 
 interface NavbarProps {
   variant?: "transparent" | "light";
@@ -145,10 +146,9 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
           <a
             href="#home"
             onClick={(e) => handleScrollTo(e, "home")}
-            className="bg-[#8d4b4b] h-[45px] w-[180px] flex items-center justify-center text-white font-bold tracking-[0.2em] text-sm uppercase rounded hover:opacity-90 transition-opacity"
             aria-label="Algammal Inc. Home"
           >
-            ALGAMMAL
+            <Image alt="logo" src={"/assets/LogoElgammal.svg" }  width={46.953} height={38.064}/>
           </a>
 
           {/* Right Navigation & Actions */}

@@ -112,10 +112,16 @@ export default function HeroSection() {
                     className="h-auto"
                   />
 
-                  {/* Slide Title */}
-                  <h1 className="w-full text-4xl md:text-5xl lg:text-[64px] font-medium leading-[1.1] tracking-tight text-[#EFF1F4] drop-shadow-sm font-poppins">
-                    {t(slide.titleKey)}
-                  </h1>
+                  {/* Slide Title (split dynamically into lines with 24px vertical gap) */}
+                  {t(slide.titleKey).split("\n").map((line, lineIdx) => (
+                    <h1
+                      key={lineIdx}
+                      className="w-full text-4xl md:text-5xl lg:text-[64px] font-medium leading-[1.0] tracking-tight text-[#EFF1F4] drop-shadow-sm font-poppins"
+                    >
+                      {line}
+                    </h1>
+                  ))}
+                 
 
                   {/* Slide Description */}
                   <p className="w-full text-sm md:text-base text-[#EFF1F4]/90 font-light leading-[1.5] max-w-xl">
