@@ -138,7 +138,13 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   return (
     <>
       <nav 
-        className="w-full h-[71px] bg-[#EFF1F4]/24 backdrop-blur-[25.75px] border border-white/20 rounded-[16px] shadow-sm transition-all duration-300 relative z-40"
+        className="w-full h-[71px] rounded-[16px] shadow-[0_8px_32px_rgba(20,20,20,0.08)] transition-all duration-300 relative z-40"
+        style={{
+          backgroundColor: "rgba(239, 241, 244, 0.55)",
+          border: "1px solid rgba(255, 255, 255, 0.4)",
+          backdropFilter: "blur(25.75px)",
+          WebkitBackdropFilter: "blur(25.75px)"
+        }}
       >
         {/* Desktop Navbar layout */}
         <div className="hidden lg:flex h-full items-center justify-between px-[120px] py-[13px]">

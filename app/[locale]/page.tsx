@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#EFF1F4] text-[#141414]">
       {/* Floating Header Wrapper */}
-      <header className="fixed top-[24px] left-0 right-0 z-50 px-4 md:px-6 max-w-[1440px] mx-auto">
+      <header className="fixed left-0 right-0 z-50">
         <Navbar />
       </header>
 
@@ -30,7 +30,6 @@ export default function Home() {
 
       {/* Product Details Section */}
       <ProductDetails />
-
 
        {/* What We Offer Section */}
       <WhatWeOffer />
