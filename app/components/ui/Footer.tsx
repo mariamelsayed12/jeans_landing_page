@@ -35,8 +35,11 @@ export default function Footer() {
               height={38}
               priority
             />
-            <span className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX uppercase">
-              ELGAMMAL
+            <span 
+              className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX"
+              style={{ fontVariationSettings: '"MORF" 0, "wdth" 0, "BNCE" 1' }}
+            >
+              ELGammal
             </span>
           </a>
 

@@ -41,7 +41,7 @@ export default function ContactUs() {
       id="contact-us"
       className="w-full bg-[var(--color-bg-secondary)] py-[60px] px-[15px] md:px-[20px] lg:px-[24px] overflow-hidden relative"
     >
-      <div className="mx-auto flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-0 w-full max-w-[1296px] text-left rtl:text-right">
+      <div className="mx-auto flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-0 w-full text-left rtl:text-right">
         {/* Left Column: Text & Benefits */}
         <div className="flex flex-col gap-[32px] items-start rtl:items-end text-left rtl:text-right max-w-[562px] w-full shrink-0">
           <div className="flex flex-col gap-[16px] items-start rtl:items-end w-full">
@@ -95,13 +95,23 @@ export default function ContactUs() {
 
         {/* Middle Column: Rotated Divider (Desktop Only) */}
         <div className="hidden lg:flex h-[294px] items-center justify-center w-[100px] shrink-0">
-          <div className="relative w-[22px] h-full rotate-15 rtl:-rotate-15">
-            <Image
-              src="/assets/Line1Contact.svg"
-              alt=""
-              fill
-              className="object-contain"
-            />
+          <div className="relative w-[36px] h-full rotate-15 rtl:-rotate-15">
+            <div className="absolute inset-0">
+              <Image
+                src="/assets/Line1Contact.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute inset-0 translate-x-[16px] translate-y-[12px]">
+              <Image
+                src="/assets/Line2contact.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
 

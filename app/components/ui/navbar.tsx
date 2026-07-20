@@ -162,8 +162,11 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               height={38}
               priority
             />
-            <span className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX">
-              ELGAMMAL
+            <span 
+              className="font-normal text-[14px] text-[#141414] tracking-wider font-TROX"
+              style={{ fontVariationSettings: '"MORF" 0, "wdth" 0, "BNCE" 1' }}
+            >
+              ELGammal
             </span>
           </a>
 
@@ -232,8 +235,11 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               height={38}
               priority
             />
-            <span className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX uppercase">
-              ELGAMMAL
+            <span 
+              className="font-bold text-[14px] text-[#141414] tracking-wider font-TROX"
+              style={{ fontVariationSettings: '"MORF" 0, "wdth" 0, "BNCE" 1' }}
+            >
+              ELGammal
             </span>
           </a>
         </div>
@@ -264,8 +270,11 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               width={35}
               height={28}
             />
-            <span className="font-bold text-sm tracking-wider text-[#141414] font-TROX uppercase">
-              ELGAMMAL
+            <span 
+              className="font-bold text-sm tracking-wider text-[#141414] font-TROX"
+              style={{ fontVariationSettings: '"MORF" 0, "wdth" 0, "BNCE" 1' }}
+            >
+              ELGammal
             </span>
           </div>
           <button
