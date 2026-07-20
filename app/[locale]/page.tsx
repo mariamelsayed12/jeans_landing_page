@@ -9,6 +9,7 @@ import ContactUs from "@/app/components/Home/ContactUs";
 import Footer from "@/app/components/ui/Footer";
 import Faqs from "@/app/components/Home/Faqs";
 import CartDrawer from "@/app/components/Cart/CartDrawer";
+import { CheckoutDrawer } from "@/app/components/checkout";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -23,6 +24,9 @@ export default function Home() {
 
       {/* Cart Drawer */}
       <CartDrawer />
+
+      {/* Checkout Drawer */}
+      <CheckoutDrawer />
 
       {/* Hero Section */}
       <section id="home" className="w-full">

@@ -73,7 +73,8 @@ export default function CartDrawer() {
   );
 
   const handleCheckout = () => {
-    alert(isRtl ? "جاري الانتقال للدفع..." : "Proceeding to checkout...");
+    setIsOpen(false);
+    window.dispatchEvent(new Event("open-checkout"));
   };
 
   return (
