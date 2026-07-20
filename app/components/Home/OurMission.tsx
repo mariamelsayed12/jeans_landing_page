@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -10,13 +9,13 @@ export default function OurMission() {
   return (
     <section
       id="about"
-      className="w-full bg-[var(--color-bg-primary)] py-[60px] px-[15px] md:px-[20px] lg:pl-[24px] lg:pr-0 lg:rtl:pl-0 lg:rtl:pr-[24px]"
+      className="w-full bg-[var(--color-bg-primary)] py-[60px] px-[15px] md:px-[20px] lg:ps-[24px] lg:pe-0"
     >
       <div className="mx-auto flex flex-col lg:flex-row items-center gap-[32px] lg:gap-[24px] w-full">
         {/* Left Column: Text */}
-        <div className="w-full lg:w-[562px] flex flex-col gap-[24px] items-start rtl:items-end text-left rtl:text-right shrink-0">
+        <div className="w-full lg:w-[562px] flex flex-col gap-[24px] items-start text-start shrink-0">
           {/* Heading & Line Group */}
-          <div className="flex flex-col items-start rtl:items-end w-full">
+          <div className="flex flex-col items-start w-full">
             <h2 className="font-poppins font-semibold lg:font-medium text-[28px] lg:text-[40px] text-[#141414] leading-normal tracking-wide">
               {t("title")}
             </h2>

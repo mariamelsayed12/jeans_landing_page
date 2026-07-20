@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
@@ -22,9 +21,13 @@ export default function ProductDetails() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentProduct = PRODUCTS[currentIndex];
 
-  const [selectedSize, setSelectedSize] = useState(currentProduct.sizes[0] || "XL");
+  const [selectedSize, setSelectedSize] = useState(
+    currentProduct.sizes[0] || "XL",
+  );
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setSelectedColor] = useState(currentProduct.colors?.[0] || "grey");
+  const [selectedColor, setSelectedColor] = useState(
+    currentProduct.colors?.[0] || "grey",
+  );
 
   const handleProductChange = (newIndex: number) => {
     if (newIndex >= 0 && newIndex < PRODUCTS.length) {
@@ -44,7 +47,7 @@ export default function ProductDetails() {
       quantity: quantity,
       color: selectedColor,
       size: selectedSize,
-      images: currentProduct.images
+      images: currentProduct.images,
     };
     dispatch(addToCartAction(productToCart));
   };
@@ -63,7 +66,7 @@ export default function ProductDetails() {
       className="relative w-full bg-[#141414] py-[60px] px-[15px] md:px-[20px] lg:px-[24px] overflow-hidden"
     >
       {/* Background Image Overlay */}
-      <div className="absolute inset-0 pointer-events-none select-none z-0">
+      <div className="absolute inset-0 pointer-events-none  select-none z-0">
         <Image
           src="/assets/product_bg_jeans.png"
           alt=""
@@ -83,7 +86,10 @@ export default function ProductDetails() {
 
         {/* Gallery & Rotated Tag Row */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-[32px] w-full">
-          <ProductGallery images={currentProduct.images} key={currentProduct.id} />
+          <ProductGallery
+            images={currentProduct.images}
+            key={currentProduct.id}
+          />
 
           {/* Rotated Leather Tag (Desktop Only) */}
           <div className="hidden lg:flex items-center justify-center relative shrink-0 w-[434px] h-[178px] overflow-hidden">
@@ -92,7 +98,7 @@ export default function ProductDetails() {
                 src="/assets/imgCard.png"
                 alt="Brand Tag"
                 fill
-                className="object-contain"
+                className="object-contain rtl:rotate-180"
                 priority
               />
             </div>
@@ -102,19 +108,21 @@ export default function ProductDetails() {
         {/* Details & Actions Row */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-[32px] w-full">
           {/* Left Details & Selection Controls */}
-          <div className="flex flex-col gap-[16px] items-start rtl:items-end text-left rtl:text-right w-full lg:max-w-[500px]">
+          <div className="flex flex-col gap-[16px] items-start text-start w-full lg:max-w-[500px]">
             {/* Title & Price */}
-            <div className="flex flex-col gap-[4px] items-start rtl:items-end">
+            <div className="flex flex-col gap-[4px] items-start">
               <h3 className="font-poppins font-medium text-[19px] text-[#EFF1F4] leading-normal">
                 {tGlobal(currentProduct.titleKey)}
               </h3>
               <p className="font-poppins font-medium text-[19px] text-[#EFF1F4] leading-normal">
-                {locale === "ar" ? `${currentProduct.price} جنيه` : `${currentProduct.price} EGP`}
+                {locale === "ar"
+                  ? `${currentProduct.price} جنيه`
+                  : `${currentProduct.price} EGP`}
               </p>
             </div>
 
             {/* Swatches & Selection Dropdowns */}
-            <div className="flex flex-col gap-[12px] w-full items-start rtl:items-end">
+            <div className="flex flex-col gap-[12px] w-full items-start">
               {/* Color Swatches */}
               <div className="flex gap-[12px] items-center">
                 {currentProduct.colors?.map((color) => {
@@ -140,8 +148,8 @@ export default function ProductDetails() {
               </div>
 
               {/* Selectors and Add Button Group */}
-              <div className="flex flex-col gap-[32px] items-start rtl:items-end w-full">
-                <div className="flex flex-wrap gap-[16px] items-center w-full justify-start rtl:justify-end">
+              <div className="flex flex-col gap-[32px] items-start w-full">
+                <div className="flex flex-wrap gap-[16px] items-center w-full justify-start">
                   <SizeSelector
                     sizes={currentProduct.sizes}
                     value={selectedSize}

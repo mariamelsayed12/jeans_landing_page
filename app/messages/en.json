@@ -81,5 +81,16 @@
     "a3": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu.",
     "q4": "Do you offer cash on delivery ?",
     "a4": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty_title": "Your cart is empty",
+    "empty_desc": "Add items to your cart to see them here",
+    "continue_shopping": "Continue Shopping",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "egp": "EGP",
+    "size": "Size",
+    "color": "Color"
   }
 }

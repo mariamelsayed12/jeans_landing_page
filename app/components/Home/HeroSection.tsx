@@ -73,7 +73,9 @@ export default function HeroSection() {
             <div
               key={slide.id}
               className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-                isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                isActive
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0 pointer-events-none"
               }`}
             >
               {hasError ? (
@@ -101,8 +103,8 @@ export default function HeroSection() {
               )}
 
               {/* Content Box aligned to navbar padding constraints */}
-              <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-14 lg:px-[24px] text-white">
-                <div className="max-w-[562px] flex flex-col gap-[24px] items-start rtl:items-end text-left rtl:text-right">
+              <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-14 lg:px-[24px] text-white items-start">
+                <div className="max-w-[562px] flex flex-col gap-[24px] items-start text-start">
                   {/* Decorative Top Line */}
                   <Image
                     src="/assets/Line1.svg"
@@ -113,15 +115,16 @@ export default function HeroSection() {
                   />
 
                   {/* Slide Title (split dynamically into lines with 24px vertical gap) */}
-                  {t(slide.titleKey).split("\n").map((line, lineIdx) => (
-                    <h1
-                      key={lineIdx}
-                      className="w-full text-4xl md:text-5xl lg:text-[64px] font-medium leading-[1.0] tracking-tight text-[#EFF1F4] drop-shadow-sm font-poppins"
-                    >
-                      {line}
-                    </h1>
-                  ))}
-                 
+                  {t(slide.titleKey)
+                    .split("\n")
+                    .map((line, lineIdx) => (
+                      <h1
+                        key={lineIdx}
+                        className="w-full text-4xl md:text-5xl lg:text-[64px] font-medium leading-[1.0] tracking-tight text-[#EFF1F4] drop-shadow-sm font-poppins"
+                      >
+                        {line}
+                      </h1>
+                    ))}
 
                   {/* Slide Description */}
                   <p className="w-full text-sm md:text-base text-[#EFF1F4]/90 font-light leading-[1.5] max-w-xl">
@@ -156,8 +159,8 @@ export default function HeroSection() {
               key={idx}
               onClick={() => handleIndicatorClick(idx)}
               className={`rounded-full transition-all duration-300 cursor-pointer focus:outline-none ${
-                isActive 
-                  ? "size-[14px] bg-[#EFF1F4] scale-100" 
+                isActive
+                  ? "size-[14px] bg-[#EFF1F4] scale-100"
                   : "size-[14px] bg-[#EFF1F4]/40 hover:bg-[#EFF1F4]/60 scale-90"
               }`}
               aria-label={`Go to slide ${idx + 1}`}

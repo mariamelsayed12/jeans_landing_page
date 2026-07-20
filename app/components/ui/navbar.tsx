@@ -5,6 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import Button from "@/app/components/ui/Button";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/app/redux/store";
 
 interface NavbarProps {
   variant?: "transparent" | "light";
@@ -69,6 +71,9 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+
+  const dispatch = useDispatch();
+  const { cartProducts } = useSelector((state: RootState) => state.Cart);
 
   const isRtl = locale === "ar";
 
@@ -203,10 +208,16 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
                 {locale === "en" ? "العربيه" : "English"}
               </button>
               <button 
+                onClick={() => window.dispatchEvent(new Event("open-cart"))}
                 className="relative size-[32px] flex items-center justify-center group focus:outline-none cursor-pointer"
                 aria-label={locale === "en" ? "Shopping Cart" : "سلة التسوق"}
               >
                 <BagIcon />
+                {/* {cartItemCount > 0 && (
+                  <span className="absolute -top-[4px] -right-[4px] bg-[#8d4b4b] text-white font-poppins text-[10px] font-bold rounded-full size-[18px] flex items-center justify-center border border-white">
+                    {cartItemCount}
+                  </span>
+                )} */}
               </button>
             </div>
           </div>
@@ -242,6 +253,19 @@ const Navbar = ({ variant = "transparent" }: NavbarProps) => {
               ELGammal
             </span>
           </a>
+
+          <button 
+            onClick={() => window.dispatchEvent(new Event("open-cart"))}
+            className="relative size-[32px] flex items-center justify-center group focus:outline-none cursor-pointer hover:opacity-80 transition-opacity"
+            aria-label={locale === "en" ? "Shopping Cart" : "سلة التسوق"}
+          >
+            <BagIcon />
+            {/* {cartItemCount > 0 && (
+              <span className="absolute -top-[4px] -right-[4px] bg-[#8d4b4b] text-white font-poppins text-[9px] font-bold rounded-full size-[14px] flex items-center justify-center border border-white">
+                {cartItemCount}
+              </span>
+            )} */}
+          </button>
         </div>
       </nav>
 

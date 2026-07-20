@@ -8,6 +8,7 @@ import WhatWeOffer from "@/app/components/Home/WhatWeOffer";
 import ContactUs from "@/app/components/Home/ContactUs";
 import Footer from "@/app/components/ui/Footer";
 import Faqs from "@/app/components/Home/Faqs";
+import CartDrawer from "@/app/components/Cart/CartDrawer";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -19,6 +20,9 @@ export default function Home() {
       <header className="fixed left-0 right-0 z-50">
         <Navbar />
       </header>
+
+      {/* Cart Drawer */}
+      <CartDrawer />
 
       {/* Hero Section */}
       <section id="home" className="w-full">

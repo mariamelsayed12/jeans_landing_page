@@ -41,12 +41,12 @@ export default function ContactUs() {
       id="contact-us"
       className="w-full bg-[var(--color-bg-secondary)] py-[60px] px-[15px] md:px-[20px] lg:px-[24px] overflow-hidden relative"
     >
-      <div className="mx-auto flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-0 w-full text-left rtl:text-right">
+      <div className="mx-auto flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-0 w-full text-start">
         {/* Left Column: Text & Benefits */}
-        <div className="flex flex-col gap-[32px] items-start rtl:items-end text-left rtl:text-right max-w-[562px] w-full shrink-0">
-          <div className="flex flex-col gap-[16px] items-start rtl:items-end w-full">
+        <div className="flex flex-col gap-[32px] items-start text-start max-w-[562px] w-full shrink-0">
+          <div className="flex flex-col gap-[16px] items-start w-full">
             {/* Header info */}
-            <div className="flex flex-col gap-[4px] items-start rtl:items-end">
+            <div className="flex flex-col gap-[4px] items-start">
               <span className="text-[#D4D5D8] text-[14px] font-medium font-poppins uppercase tracking-wider">
                 {t("subtitle")}
               </span>
@@ -59,20 +59,20 @@ export default function ContactUs() {
             </div>
 
             {/* Checklist */}
-            <div className="flex flex-col gap-[8px] w-full items-start rtl:items-end">
-              <div className="flex gap-[8px] items-center text-left rtl:text-right">
+            <div className="flex flex-col gap-[8px] w-full items-start">
+              <div className="flex gap-[8px] items-center text-start">
                 <CheckIcon />
                 <span className="text-[#EFF1F4] text-[19px] font-poppins font-normal">
                   {t("benefit1")}
                 </span>
               </div>
-              <div className="flex gap-[8px] items-center text-left rtl:text-right">
+              <div className="flex gap-[8px] items-center text-start">
                 <CheckIcon />
                 <span className="text-[#EFF1F4] text-[19px] font-poppins font-normal">
                   {t("benefit2")}
                 </span>
               </div>
-              <div className="flex gap-[8px] items-center text-left rtl:text-right">
+              <div className="flex gap-[8px] items-center text-start">
                 <CheckIcon />
                 <span className="text-[#EFF1F4] text-[19px] font-poppins font-normal">
                   {t("benefit3")}
