@@ -26,7 +26,7 @@ export default function QuantityCounter({ value, onChange }: QuantityCounterProp
         type="button"
         onClick={handleDecrement}
         disabled={value <= 1}
-        className="w-[24px] h-[24px] rounded-full hover:bg-neutral-800 flex items-center justify-center transition-colors duration-150 focus:outline-none disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+        className="w-[24px] h-[24px] border border-[#EFF1F4] rounded-full hover:bg-neutral-800 flex items-center justify-center transition-colors duration-150 focus:outline-none disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
         aria-label="Decrease quantity"
       >
         <FiMinus className="w-[14px] h-[14px] text-[#EFF1F4]" />
@@ -41,7 +41,7 @@ export default function QuantityCounter({ value, onChange }: QuantityCounterProp
       <button
         type="button"
         onClick={handleIncrement}
-        className="w-[24px] h-[24px] rounded-full hover:bg-neutral-800 flex items-center justify-center transition-colors duration-150 focus:outline-none cursor-pointer"
+        className="w-[24px] h-[24px] border border-[#EFF1F4] rounded-full hover:bg-neutral-800 flex items-center justify-center transition-colors duration-150 focus:outline-none cursor-pointer"
         aria-label="Increase quantity"
       >
         <FiPlus className="w-[14px] h-[14px] text-[#EFF1F4]" />

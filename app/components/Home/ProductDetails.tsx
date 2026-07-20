@@ -7,13 +7,14 @@ import ProductGallery from "./ProductGallery";
 import SizeSelector from "./SizeSelector";
 import QuantityCounter from "./QuantityCounter";
 import Button from "@/app/components/ui/Button";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const PRODUCT_IMAGES = [
   "/assets/clothes.png",
   "/assets/clothes2.jpg",
-    "/assets/clothes2.jpg",
-      "/assets/clothes2.jpg"
-
+  "/assets/clothes2.jpg",
+  "/assets/clothes2.jpg"
 ];
 
 const SIZES = ["S", "M", "L", "XL", "XXL"];
@@ -21,7 +22,7 @@ const SIZES = ["S", "M", "L", "XL", "XXL"];
 export default function ProductDetails() {
   const t = useTranslations("product");
   const [selectedSize, setSelectedSize] = useState("XL");
-  const [quantity, setQuantity] = useState(3);
+  const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("grey"); // "grey" | "blue"
 
   const handleScrollToFooter = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -48,7 +49,7 @@ export default function ProductDetails() {
         />
       </div>
 
-      <div className="relative max-w-[1440px] mx-auto flex flex-col gap-[32px] w-full z-10">
+      <div className="relative  mx-auto flex flex-col gap-[32px] w-full z-10">
         {/* Title Row */}
         <div className="flex items-center w-full">
           <h2 className="font-poppins font-semibold text-[23px] text-[#EFF1F4] leading-normal tracking-wide">
@@ -88,16 +89,6 @@ export default function ProductDetails() {
               </p>
             </div>
 
-            {/* Rating Stars */}
-            <div className="relative w-[56px] h-[24px]">
-              <Image
-                src="/assets/product_rating_stars.svg"
-                alt="Product Rating"
-                fill
-                className="object-contain object-left rtl:object-right"
-              />
-            </div>
-
             {/* Swatches & Selection Dropdowns */}
             <div className="flex flex-col gap-[12px] w-full items-start rtl:items-end">
               {/* Color Swatches */}
@@ -123,17 +114,19 @@ export default function ProductDetails() {
               </div>
 
               {/* Selectors and Add Button Group */}
-              <div className="flex flex-wrap gap-[16px] items-center w-full justify-start rtl:justify-end">
-                <SizeSelector
-                  sizes={SIZES}
-                  value={selectedSize}
-                  onChange={setSelectedSize}
-                />
-                <QuantityCounter
-                  value={quantity}
-                  onChange={setQuantity}
-                />
-                
+              <div className="flex flex-col gap-[32px] items-start rtl:items-end w-full">
+                <div className="flex flex-wrap gap-[16px] items-center w-full justify-start rtl:justify-end">
+                  <SizeSelector
+                    sizes={SIZES}
+                    value={selectedSize}
+                    onChange={setSelectedSize}
+                  />
+                  <QuantityCounter
+                    value={quantity}
+                    onChange={setQuantity}
+                  />
+                </div>
+
                 <Button
                   variant="secondary"
                   size="md"
@@ -154,55 +147,41 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Contact Link & Navigation Chevrons */}
-          <div className="flex flex-row items-center justify-between gap-[24px] w-full lg:w-auto shrink-0 border-t border-neutral-800 lg:border-t-0 pt-[16px] lg:pt-0">
-            {/* Contact text */}
-            <div className="flex gap-[8px] items-center text-[16px] font-poppins">
-              <span className="text-[#D4D5D8]">{t("stock_pricing_prefix")}</span>
-              <a
-                href="#footer"
-                onClick={handleScrollToFooter}
-                className="text-[#EFF1F4] font-medium hover:underline cursor-pointer"
-              >
-                {t("contact_us")}
-              </a>
-            </div>
+        {/* Bottom Bar: Contact Link & Navigation Chevrons */}
+        <div className="relative w-full flex flex-col lg:flex-row items-center justify-center gap-[24px] lg:gap-0 mt-[16px] min-h-[52px]">
+          {/* Contact text */}
+          <div className="flex gap-[8px] items-center font-poppins justify-start shrink-0 lg:absolute lg:left-0 lg:rtl:left-auto lg:rtl:right-0">
+            <span className="text-[#D4D5D8] text-[16px] font-normal">{t("stock_pricing_prefix")}</span>
+            <a
+              href="#contact-us"
+              onClick={handleScrollToFooter}
+              className="text-[#EFF1F4] text-[19px] font-medium hover:underline cursor-pointer"
+            >
+              {t("contact_us")}
+            </a>
+          </div>
 
-            {/* Carousel Nav buttons */}
-            <div className="flex gap-[12px] items-center">
-              {/* Prev Button */}
-              <button
-                type="button"
-                className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
-                aria-label="Previous product"
-              >
-                <div className="relative w-[10px] h-[10px] shrink-0 rtl:rotate-180">
-                  <Image
-                    src="/assets/icon_chevron_left.svg"
-                    alt=""
-                    fill
-                    className="object-contain filter invert"
-                  />
-                </div>
-              </button>
+          {/* Carousel Nav buttons */}
+          <div className="flex gap-[12px] justify-center items-center shrink-0">
+            {/* Prev Button */}
+            <button
+              type="button"
+              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
+              aria-label="Previous product"
+            >
+              <IoIosArrowBack className="size-[20px] text-white rtl:rotate-180" />
+            </button>
 
-              {/* Next Button */}
-              <button
-                type="button"
-                className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
-                aria-label="Next product"
-              >
-                <div className="relative w-[10px] h-[10px] shrink-0 rtl:rotate-180">
-                  <Image
-                    src="/assets/icon_chevron_right.svg"
-                    alt=""
-                    fill
-                    className="object-contain filter invert"
-                  />
-                </div>
-              </button>
-            </div>
+            {/* Next Button */}
+            <button
+              type="button"
+              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
+              aria-label="Next product"
+            >
+              <IoIosArrowForward className="size-[20px] text-white rtl:rotate-180" />
+            </button>
           </div>
         </div>
       </div>

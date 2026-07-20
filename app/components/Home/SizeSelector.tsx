@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { IoIosArrowDown } from "react-icons/io";
 
 interface SizeSelectorProps {
   sizes: string[];
@@ -35,13 +36,8 @@ export default function SizeSelector({ sizes, value, onChange }: SizeSelectorPro
         className="border border-[#EFF1F4] flex items-center justify-between gap-[8px] px-[12px] py-[6px] rounded-[16px] bg-transparent text-[#EFF1F4] font-medium text-[16px] cursor-pointer hover:bg-neutral-800 transition-colors duration-200 select-none min-w-[70px] h-[36px] focus:outline-none"
       >
         <span className="font-poppins">{value}</span>
-        <div className="relative w-[10px] h-[5px] shrink-0 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}>
-          <Image
-            src="/assets/icon_chevron_down.svg"
-            alt=""
-            fill
-            className="object-contain filter invert"
-          />
+        <div className="relative  shrink-0 transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}>
+          <IoIosArrowDown color="white" width={10} height={5}/>
         </div>
       </button>
 
