@@ -5,7 +5,9 @@ import HeroSection from "@/app/components/Home/HeroSection";
 import OurMission from "@/app/components/Home/OurMission";
 import ProductDetails from "@/app/components/Home/ProductDetails";
 import WhatWeOffer from "@/app/components/Home/WhatWeOffer";
+import ContactUs from "@/app/components/Home/ContactUs";
 import Footer from "@/app/components/ui/Footer";
+import Faqs from "@/app/components/Home/Faqs";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -22,8 +24,7 @@ export default function Home() {
       <section id="home" className="w-full">
         <HeroSection />
       </section>
-
-     
+      
       {/* About Section */}
       <OurMission />
 
@@ -34,23 +35,11 @@ export default function Home() {
        {/* What We Offer Section */}
       <WhatWeOffer />
 
-
-      {/* Stock Pricing Section */}
-      {/* <section
-        id="stock-pricing"
-        className="min-h-screen flex flex-col items-center justify-center bg-white px-6 md:px-24"
-      >
-        <h1>stock pricing</h1>
-      </section> */}
+      {/* Contact Us Section */}
+      <ContactUs />
 
       {/* FAQs Section */}
-      {/* <section
-        id="faqs"
-        className="min-h-screen flex flex-col items-center justify-center bg-[#EFF1F4] px-6 md:px-24"
-      >
-       
-        <h1>faqs</h1>
-      </section> */}
+      <Faqs />
 
       <Footer />
     </div>

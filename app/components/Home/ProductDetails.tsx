@@ -1,29 +1,53 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import ProductGallery from "./ProductGallery";
 import SizeSelector from "./SizeSelector";
 import QuantityCounter from "./QuantityCounter";
 import Button from "@/app/components/ui/Button";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { MdArrowForwardIos } from "react-icons/md";
-
-const PRODUCT_IMAGES = [
-  "/assets/clothes.png",
-  "/assets/clothes2.jpg",
-  "/assets/clothes2.jpg",
-  "/assets/clothes2.jpg"
-];
-
-const SIZES = ["S", "M", "L", "XL", "XXL"];
+import { useAppDispatch } from "@/app/redux/store";
+import { addToCartAction } from "@/app/redux/feature/CartSlice";
+import { PRODUCTS } from "@/data/products";
+import { IProduct } from "@/interface";
 
 export default function ProductDetails() {
+  const dispatch = useAppDispatch();
   const t = useTranslations("product");
-  const [selectedSize, setSelectedSize] = useState("XL");
+  const tGlobal = useTranslations();
+  const locale = useLocale();
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentProduct = PRODUCTS[currentIndex];
+
+  const [selectedSize, setSelectedSize] = useState(currentProduct.sizes[0] || "XL");
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setSelectedColor] = useState("grey"); // "grey" | "blue"
+  const [selectedColor, setSelectedColor] = useState(currentProduct.colors?.[0] || "grey");
+
+  const handleProductChange = (newIndex: number) => {
+    if (newIndex >= 0 && newIndex < PRODUCTS.length) {
+      setCurrentIndex(newIndex);
+      const newProduct = PRODUCTS[newIndex];
+      setSelectedSize(newProduct.sizes[0] || "XL");
+      setSelectedColor(newProduct.colors?.[0] || "grey");
+      setQuantity(1);
+    }
+  };
+
+  const handleAddToCart = () => {
+    const productToCart: IProduct = {
+      id: currentProduct.id,
+      title: tGlobal(currentProduct.titleKey),
+      price: currentProduct.price,
+      quantity: quantity,
+      color: selectedColor,
+      size: selectedSize,
+      images: currentProduct.images
+    };
+    dispatch(addToCartAction(productToCart));
+  };
 
   const handleScrollToFooter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -59,8 +83,8 @@ export default function ProductDetails() {
 
         {/* Gallery & Rotated Tag Row */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-[32px] w-full">
-          <ProductGallery images={PRODUCT_IMAGES} />
-          
+          <ProductGallery images={currentProduct.images} key={currentProduct.id} />
+
           {/* Rotated Leather Tag (Desktop Only) */}
           <div className="hidden lg:flex items-center justify-center relative shrink-0 w-[434px] h-[178px] overflow-hidden">
             <div className="relative w-[433px] h-[176px]  shrink-0">
@@ -82,10 +106,10 @@ export default function ProductDetails() {
             {/* Title & Price */}
             <div className="flex flex-col gap-[4px] items-start rtl:items-end">
               <h3 className="font-poppins font-medium text-[19px] text-[#EFF1F4] leading-normal">
-                {t("name")}
+                {tGlobal(currentProduct.titleKey)}
               </h3>
               <p className="font-poppins font-medium text-[19px] text-[#EFF1F4] leading-normal">
-                {t("price")}
+                {locale === "ar" ? `${currentProduct.price} جنيه` : `${currentProduct.price} EGP`}
               </p>
             </div>
 
@@ -93,43 +117,43 @@ export default function ProductDetails() {
             <div className="flex flex-col gap-[12px] w-full items-start rtl:items-end">
               {/* Color Swatches */}
               <div className="flex gap-[12px] items-center">
-                <button
-                  type="button"
-                  onClick={() => setSelectedColor("grey")}
-                  className={`w-[24px] h-[24px] rounded-full border-2 transition-all duration-150 cursor-pointer ${
-                    selectedColor === "grey" ? "border-white scale-110" : "border-transparent"
-                  }`}
-                  style={{ backgroundColor: "#747474" }}
-                  aria-label="Grey color option"
-                />
-                <button
-                  type="button"
-                  onClick={() => setSelectedColor("blue")}
-                  className={`w-[24px] h-[24px] rounded-full border-2 transition-all duration-150 cursor-pointer ${
-                    selectedColor === "blue" ? "border-white scale-110" : "border-transparent"
-                  }`}
-                  style={{ backgroundColor: "#1D3E8C" }}
-                  aria-label="Blue color option"
-                />
+                {currentProduct.colors?.map((color) => {
+                  let bgColor = "#747474";
+                  if (color === "blue") bgColor = "#1D3E8C";
+                  if (color === "black") bgColor = "#1C1C1C";
+
+                  return (
+                    <button
+                      key={color}
+                      type="button"
+                      onClick={() => setSelectedColor(color)}
+                      className={`w-[24px] h-[24px] rounded-full border-2 transition-all duration-150 cursor-pointer ${
+                        selectedColor === color
+                          ? "border-white scale-110"
+                          : "border-transparent"
+                      }`}
+                      style={{ backgroundColor: bgColor }}
+                      aria-label={`${color} color option`}
+                    />
+                  );
+                })}
               </div>
 
               {/* Selectors and Add Button Group */}
               <div className="flex flex-col gap-[32px] items-start rtl:items-end w-full">
                 <div className="flex flex-wrap gap-[16px] items-center w-full justify-start rtl:justify-end">
                   <SizeSelector
-                    sizes={SIZES}
+                    sizes={currentProduct.sizes}
                     value={selectedSize}
                     onChange={setSelectedSize}
                   />
-                  <QuantityCounter
-                    value={quantity}
-                    onChange={setQuantity}
-                  />
+                  <QuantityCounter value={quantity} onChange={setQuantity} />
                 </div>
 
                 <Button
                   variant="secondary"
                   size="md"
+                  onClick={handleAddToCart}
                   className="h-[36px] px-[24px] rounded-[16px] hover:bg-[#E4E6EB] transition-colors"
                   leftIcon={
                     <div className="relative w-[20px] h-[20px] shrink-0">
@@ -153,7 +177,9 @@ export default function ProductDetails() {
         <div className="relative w-full flex flex-col lg:flex-row items-center justify-center gap-[24px] lg:gap-0 mt-[16px] min-h-[52px]">
           {/* Contact text */}
           <div className="flex gap-[8px] items-center font-poppins justify-start shrink-0 lg:absolute lg:left-0 lg:rtl:left-auto lg:rtl:right-0">
-            <span className="text-[#D4D5D8] text-[16px] font-normal">{t("stock_pricing_prefix")}</span>
+            <span className="text-[#D4D5D8] text-[16px] font-normal">
+              {t("stock_pricing_prefix")}
+            </span>
             <a
               href="#contact-us"
               onClick={handleScrollToFooter}
@@ -168,7 +194,9 @@ export default function ProductDetails() {
             {/* Prev Button */}
             <button
               type="button"
-              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
+              onClick={() => handleProductChange(currentIndex - 1)}
+              disabled={currentIndex === 0}
+              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
               aria-label="Previous product"
             >
               <IoIosArrowBack className="size-[20px] text-white rtl:rotate-180" />
@@ -177,7 +205,9 @@ export default function ProductDetails() {
             {/* Next Button */}
             <button
               type="button"
-              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none"
+              onClick={() => handleProductChange(currentIndex + 1)}
+              disabled={currentIndex === PRODUCTS.length - 1}
+              className="border border-[#EFF1F4] flex items-center justify-center rounded-[16px] size-[52px] cursor-pointer hover:bg-neutral-800 transition-colors duration-150 focus:outline-none disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
               aria-label="Next product"
             >
               <IoIosArrowForward className="size-[20px] text-white rtl:rotate-180" />

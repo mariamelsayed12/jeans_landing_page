@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "../globals.css";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import { Toaster } from "react-hot-toast";
+import { ReduxProvider } from "../redux/provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -37,7 +39,10 @@ export default async function RootLayout({
   <html lang={locale} dir={locale === "ar" ? "rtl":"ltr"}>
     <body className={`${poppins.variable} `}>
     <NextIntlClientProvider messages={messages}>
+      <ReduxProvider>
           {children}
+          <Toaster />
+      </ReduxProvider>
     </NextIntlClientProvider>
     </body>
   </html>

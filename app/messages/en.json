@@ -31,6 +31,17 @@
     "stock_pricing_prefix": "For stock pricing",
     "contact_us": "Contact us"
   },
+  "products": {
+    "product1": {
+      "name": "Classic Street Jeans"
+    },
+    "product2": {
+      "name": "Premium Slim Jeans"
+    },
+    "product3": {
+      "name": "Comfort Relaxed Jeans"
+    }
+  },
   "footer": {
     "tradition": "Where Quality\n Becomes Tradition.",
     "About": "About",
@@ -49,5 +60,26 @@
     "exchange_desc": "14 days hassle-free returns.",
     "delivery_title": "Fast Delivery",
     "delivery_desc": "2-4 working days across Egypt."
+  },
+  "contact_section": {
+    "subtitle": "Special stock pricing",
+    "title": "Partner With Us",
+    "description": "Special stock prices for retailers and bulk orders.",
+    "benefit1": "Factory direct pricing",
+    "benefit2": "Consistent stock availability",
+    "benefit3": "Flexible order quantities",
+    "button": "Contact Us"
+  },
+  "faqs": {
+    "title": "FAQs",
+    "view_all": "VIEW ALL FAQS",
+    "q1": "How long does delivery take ?",
+    "a1": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu.",
+    "q2": "Whats your exchange policy ?",
+    "a2": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu.",
+    "q3": "How do stores orders work ?",
+    "a3": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu.",
+    "q4": "Do you offer cash on delivery ?",
+    "a4": "Lorem ipsum dolor sit amet consectetur. Vivamus nulla cras sit nisi. Faucibus ornare semper euismod id sem. Orci vivamus lectus eu sem sodales. Placerat purus amet leo sit gravida vel. Eu eu in auctor felis amet sed. Eros ultrices bibendum dignissim fusce vel lectus nulla semper laoreet. Arcu."
   }
 }
