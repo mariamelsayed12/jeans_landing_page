@@ -39,5 +39,15 @@
     "Testimonials": "Testimonials",
     "Connect": "Connect With Us",
     "Address": "Alexandria, Egypt"
+  },
+  "offer": {
+    "quality_title": "Premium Quality",
+    "quality_desc": "Top-grade denim that lasts.",
+    "comfort_title": "All-Day Comfort",
+    "comfort_desc": "Soft fabric with perfect stretch.",
+    "exchange_title": "Easy Exchange",
+    "exchange_desc": "14 days hassle-free returns.",
+    "delivery_title": "Fast Delivery",
+    "delivery_desc": "2-4 working days across Egypt."
   }
 }

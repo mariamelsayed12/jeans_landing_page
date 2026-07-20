@@ -39,5 +39,15 @@
     "Testimonials": "آراء العملاء",
     "Connect": "اتصل بنا",
     "Address": "الإسكندرية، مصر"
+  },
+  "offer": {
+    "quality_title": "جودة ممتازة",
+    "quality_desc": "دينيم عالي الجودة يدوم طويلاً.",
+    "comfort_title": "راحة طوال اليوم",
+    "comfort_desc": "نسيج ناعم بمرونة مثالية.",
+    "exchange_title": "تبديل سهل",
+    "exchange_desc": "إرجاع سهل وخالٍ من المتاعب خلال 14 يوماً.",
+    "delivery_title": "شحن سريع",
+    "delivery_desc": "من 2 إلى 4 أيام عمل في جميع أنحاء مصر."
   }
 }
