@@ -1,5 +1,4 @@
-"use client";
-
+import React, { Suspense } from "react";
 import Navbar from "@/app/components/ui/navbar";
 import HeroSection from "@/app/components/Home/HeroSection";
 import OurMission from "@/app/components/Home/OurMission";
@@ -10,11 +9,9 @@ import Footer from "@/app/components/ui/Footer";
 import Faqs from "@/app/components/Home/Faqs";
 import CartDrawer from "@/app/components/Cart/CartDrawer";
 import { CheckoutDrawer } from "@/app/components/checkout";
-import { useTranslations } from "next-intl";
+import ProductDetailsSkeleton from "@/app/components/Home/ProductDetailsSkeleton";
 
 export default function Home() {
-  const t = useTranslations("navbar");
-
   return (
     <div className="relative min-h-screen bg-[#EFF1F4] text-[#141414]">
       {/* Floating Header Wrapper */}
@@ -37,9 +34,11 @@ export default function Home() {
       <OurMission />
 
       {/* Product Details Section */}
-      <ProductDetails />
+      <Suspense fallback={<ProductDetailsSkeleton />}>
+        <ProductDetails />
+      </Suspense>
 
-       {/* What We Offer Section */}
+      {/* What We Offer Section */}
       <WhatWeOffer />
 
       {/* Contact Us Section */}

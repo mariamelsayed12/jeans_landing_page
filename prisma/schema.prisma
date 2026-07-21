@@ -1,6 +1,5 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -8,24 +7,29 @@ datasource db {
   url = env("DATABASE_URL")
 }
 
+type LocalizedString {
+  en String
+  ar String
+}
+
 type Variant {
-  color  String
+  color  LocalizedString
   images String[]
 }
 
 model Product {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  description String
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name        LocalizedString
+  description LocalizedString
+
   price       Float
   sizes       String[]
-
   variants    Variant[]
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
-
 
 
 model Admin {

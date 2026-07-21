@@ -24,9 +24,9 @@ export default function CartItem({
   const getColorHex = (colorName?: string) => {
     if (!colorName) return "transparent";
     const name = colorName.toLowerCase();
-    if (name === "blue") return "#1D3E8C";
-    if (name === "black") return "#1C1C1C";
-    return "#747474"; // Default grey
+    if (name === "blue" || name === "أزرق") return "#1D3E8C";
+    if (name === "black" || name === "أسود") return "#1C1C1C";
+    return "#747474"; // Default grey (like Gray / رمادي)
   };
 
   return (

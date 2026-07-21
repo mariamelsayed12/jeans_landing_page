@@ -25,6 +25,21 @@ body {
   font-family: var(--font-poppins);
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #1c1c1c 25%, #2c2c2c 50%, #1c1c1c 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
 
 
 
