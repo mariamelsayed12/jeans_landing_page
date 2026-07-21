@@ -10,8 +10,21 @@ function getPrisma() {
   return prisma;
 }
 
+// export const getProductsListAction = async () => {
+//     const products = await getPrisma().product.findMany()
+//     return products
+// }
+
 export const getProductsListAction = async () => {
-    const products = await getPrisma().product.findMany()
-    return products
+  try {
+    const products = await getPrisma().product.findMany();
+
+    console.log(products);
+
+    return products;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 }
 

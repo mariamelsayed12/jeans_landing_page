@@ -3,6 +3,14 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import cartSlice from "./feature/CartSlice";
 import { useDispatch } from "react-redux";
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 
 // ...
@@ -22,8 +30,19 @@ export const store = configureStore({
     reducer: {
         Cart:persistedCart,    
     },
-    middleware: (getDefaultMiddleware) => 
-        getDefaultMiddleware({}), 
+    middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [
+        FLUSH,
+        REHYDRATE,
+        PAUSE,
+        PERSIST,
+        PURGE,
+        REGISTER,
+      ],
+    },
+  }),
 })
 
 export const persister=persistStore(store)
