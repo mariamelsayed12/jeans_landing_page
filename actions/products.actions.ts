@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 
 
 let prisma: PrismaClient;
