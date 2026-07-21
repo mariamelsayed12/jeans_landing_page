@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+export const dynamic = "force-dynamic";
 import Navbar from "@/app/components/ui/navbar";
 import HeroSection from "@/app/components/Home/HeroSection";
 import OurMission from "@/app/components/Home/OurMission";
