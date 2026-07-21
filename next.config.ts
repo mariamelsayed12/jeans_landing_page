@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@/app": path.resolve("./app"),
+      "@/actions": path.resolve("./actions"),
+      "@/data": path.resolve("./data"),
+      "@/interface": path.resolve("./interface"),
+      "@/validation": path.resolve("./validation"),
     };
     return config;
   },
