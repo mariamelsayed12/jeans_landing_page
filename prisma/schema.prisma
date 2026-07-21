@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+}
+
+type Variant {
+  color  String
+  images String[]
+}
+
+model Product {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  price       Float
+  sizes       String[]
+
+  variants    Variant[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+
+model Admin {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  email     String   @unique
+  password  String
+
+  createdAt DateTime @default(now())
+}
